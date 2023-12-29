@@ -32,13 +32,13 @@ public class Reto2 {
 			p1 = generarRandom();
 			p2 = generarRandom();
 			
-			System.out.print("P1 - P2");
+			System.out.println("P1 - P2");
 			
 			boolean ganadorRonda = comparar(p1,p2);
 				
 			
 			
-			System.out.print("Pulse cualquier tecla para jugar la siguiente ronda (fin: N): ");
+			System.out.print("\nPulse cualquier tecla para jugar la siguiente ronda (fin: N): ");
 			finalizar = patata.nextLine().trim();
 			
 			if(finalizar.equalsIgnoreCase("N")) {
@@ -72,7 +72,7 @@ public class Reto2 {
 	public static int generarRandom() {
 		int numero = 0;
 		
-		numero = (int)Math.random()*100;
+		numero = (int)(Math.random()*100);
 		
 		return numero;
 	}
