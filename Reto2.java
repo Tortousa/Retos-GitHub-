@@ -26,54 +26,35 @@ public class Reto2 {
 		int p1, p2;
 		String finalizar;
 		boolean check = false;
-		int ronda = 1;
 		
+	System.out.println("P1 - P2");
+
 		do {
 			p1 = generarRandom();
 			p2 = generarRandom();
-			
-			System.out.println("P1 - P2");
-			
-			boolean ganadorRonda = comparar(p1,p2);
 				
-			
-			
+		
 			System.out.print("\nPulse cualquier tecla para jugar la siguiente ronda (fin: N): ");
 			finalizar = patata.nextLine().trim();
 			
 			if(finalizar.equalsIgnoreCase("N")) {
 				System.out.println("Se cancela el partido");
 				break;
-			}else {
-				System.out.println("Siguiente ronda");
-				ronda++;
-				continue;
 			}
 			
 		}while(!check);
 	}
-	public static boolean comparar(int p1, int p2) {
-		boolean ganadorP1 = true;
-		boolean iguales = false;
-		
-		do {
+	public static void calculoPuntos(int p1, int p2) {
+		int p1Puntos = 0;
+		int p2Puntos = 0;
+
 			if(p1>p2) {
-				ganadorP1 = true;
-				iguales = true;
+				p1Puntos++;
 			}else if(p2>p1) {
-				ganadorP1 = false;
-				iguales= true;
-			}else {
-				continue;
+				p2Puntos++;
 			}
-		}while(!iguales);
-		return ganadorP1;
 	}
 	public static int generarRandom() {
-		int numero = 0;
-		
-		numero = (int)(Math.random()*100);
-		
-		return numero;
+		return (int)(Math.random()*100);
 	}
 }
