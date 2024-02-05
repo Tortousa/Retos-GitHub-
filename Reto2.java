@@ -23,17 +23,29 @@ public class Reto2 {
 	public static void main(String[] args) {
 		Scanner patata = new Scanner(System.in);
 		
-		int p1, p2;
+		int contador = 0;
+		int p1 = 0, p2 = 0;
 		String finalizar;
 		boolean check = false;
 		
-	System.out.println("P1 - P2");
+		System.out.println("P1 - P2");
 
 		do {
 			p1 = generarRandom();
 			p2 = generarRandom();
+
+			System.out.println(p1 + " / " + p2);
 				
-		
+			if(calculoPuntos(p1, p2, contador) > 0){
+				p1 += 15;
+				p2 = 0;
+				System.out.println(p1 + " - " + p2);
+			}else{
+				p1 = 0;
+				p2 += 15;
+				System.out.println(p1 + " - " + p2);
+			}
+
 			System.out.print("\nPulse cualquier tecla para jugar la siguiente ronda (fin: N): ");
 			finalizar = patata.nextLine().trim();
 			
@@ -43,16 +55,16 @@ public class Reto2 {
 			}
 			
 		}while(!check);
-	}
-	public static void calculoPuntos(int p1, int p2) {
-		int p1Puntos = 0;
-		int p2Puntos = 0;
 
-			if(p1>p2) {
-				p1Puntos++;
-			}else if(p2>p1) {
-				p2Puntos++;
-			}
+		contador = 0;
+	}
+	public static int calculoPuntos(int p1, int p2, int contador) {
+		if(p1>p2) {
+			contador++;
+		}else if(p2>p1) {
+			contador--;
+		}
+		return contador;
 	}
 	public static int generarRandom() {
 		return (int)(Math.random()*100);
