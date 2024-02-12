@@ -23,7 +23,8 @@ public class Reto2 {
 	public static void main(String[] args) {
 		Scanner patata = new Scanner(System.in);
 		
-		int p1, p2, player1 = 0, player2 = 0;
+		int p1, p2;
+		String player1 = "", player2 = "";
 		String finalizar;
 		boolean check = false;
 		
@@ -35,23 +36,7 @@ public class Reto2 {
 
 			System.out.println(p1 + " / " + p2);
 				
-			if(ganador(p1, p2) == true){
-				player1 += 15;
-			}else{
-				player2 += 15;
-			}
-
-			if(player1 > 30){
-				player1 -= 5;
-			}else if(player2 > 30){
-				player2 -= 5;
-			}
 			
-			if(player1 > 40){
-				player1 = Integer.parseInt("Deuce");
-			}else if(player2 > 40){
-				player2 = Integer.parseInt("Deuce");
-			}
 
 			System.out.println(player1 + " - " + player2);
 
@@ -63,6 +48,21 @@ public class Reto2 {
 				break;
 			}
 		}while(!check);
+	}
+	public static String resultados(String player1, String player2){
+		boolean check = false;
+		String[] array = {"15", "30", "40", "Deuce", "Ventaja"};
+		StringBuilder puntaje = new StringBuilder();
+
+		while(!check){
+			if(ganador(p1, p2) == true){
+				player1 = append.puntaje("15");
+			}else{
+				player2 = append.puntaje("15");;
+			}
+		}
+
+		return ;		
 	}
 	public static boolean ganador(int p1, int p2) {
 		while(true){
