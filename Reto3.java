@@ -38,6 +38,7 @@ public class Reto3 {
     }
     public static boolean longitudContraseña(String contraseña){
         boolean check = false;
+        
         for(int i = 0; i < contraseña.length(); i++){
             if(i>=8 && i<=16){
                 return true;

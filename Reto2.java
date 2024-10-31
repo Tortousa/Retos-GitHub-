@@ -17,66 +17,105 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 import java.util.Scanner;
-import java.lang.Math;
-
 public class Reto2 {
 	public static void main(String[] args) {
 		Scanner patata = new Scanner(System.in);
+		int ganador, contador1 = 0, contador2 = 0;
+		String puntos1 = "Love", puntos2 = "Love";
+		boolean juegoTerminado = false;
+
+		System.out.println("PARTIDO DE TENIS");
+		System.out.println("P1 -- P2");
 		
-		int p1, p2;
-		String player1 = "", player2 = "";
-		String finalizar;
-		boolean check = false;
+		do{
+			System.out.print("Inserta el ganador de la ronda(pulse 1 o 2): ");
+			ganador = patata.nextInt();
+
+			if(ganador == 1){
+				contador1++;
+
+				if(contador1 == 1){
+					puntos1 = "15";
+				}
+				if(contador1 == 2){
+					puntos1 = "30";
+				}
+				if(contador1 == 3){
+					puntos1 = "40";
+				}
+				if(contador1 >= 4 && contador2 < 3){
+					System.out.println("Ha ganado el P1");
+					juegoTerminado = true;
+					break;
+				}
+			}else if(ganador == 2){
+				contador2++;
+
+				if(contador2 == 1){
+					puntos2 = "15";
+				}
+				if(contador2 == 2){
+					puntos2 = "30";
+				}
+				if(contador2 == 3){
+					puntos2 = "40";
+				}
+				if(contador2 >= 4 && contador1 < 3){
+					System.out.println("Ha ganado el P2");
+					juegoTerminado = true;
+					break;
+				}
+			}
+			if(puntos1.equals("40") && puntos2.equals("40")){
+				System.out.println("Deuce");
+
+				do{
+					System.out.print("Inserta el ganador de la ronda(pulse 1 o 2): ");
+					ganador = patata.nextInt();
+
+					if(ganador == 1){
+						contador1++;
 		
-		System.out.println("P1 - P2");
-
-		do {
-			p1 = generarRandom();
-			p2 = generarRandom();
-
-			System.out.println(p1 + " / " + p2);
-				
-			
-
-			System.out.println(player1 + " - " + player2);
-
-			System.out.print("\nPulse cualquier tecla para jugar la siguiente ronda (fin: N): ");
-			finalizar = patata.nextLine().trim();
-			
-			if(finalizar.equalsIgnoreCase("N")) {
-				System.out.println("Se cancela el partido");
-				break;
+						if(contador1 - contador2 == 1){
+							puntos1 = "Ventaja P1";
+							puntos2 = "40";
+						}
+						else if(contador1 - contador2 == 2){
+							System.out.println("Ha ganado el P1");
+							juegoTerminado = true;
+							break;
+						}
+						else {
+							puntos1 = "40";
+							puntos2 = "40";
+							System.out.println("Deuce");
+						}
+					}else if(ganador == 2){
+						contador2++;
+		
+						if(contador2 - contador1 == 1){
+							puntos1 = "40";
+							puntos2 = "Ventaja P2";
+						}
+						else if(contador2 - contador1 == 2){
+							System.out.println("Ha ganado el P2");
+							juegoTerminado = true;
+							break;
+						}
+						else {
+							puntos1 = "40";
+							puntos2 = "40";
+							System.out.println("Deuce");
+						}
+					}
+					System.out.println(puntos1 + " - " + puntos2);
+					
+				}while(true);
 			}
-		}while(!check);
-	}
-	public static String resultados(String player1, String player2){
-		boolean check = false;
-		String[] array = {"15", "30", "40", "Deuce", "Ventaja"};
-		StringBuilder puntaje = new StringBuilder();
-
-		while(!check){
-			if(ganador(p1, p2) == true){
-				player1 = append.puntaje("15");
-			}else{
-				player2 = append.puntaje("15");;
+			if(!juegoTerminado){
+				System.out.println(puntos1 + " - " + puntos2);
 			}
-		}
 
-		return ;		
-	}
-	public static boolean ganador(int p1, int p2) {
-		while(true){
-			if(p1>p2) {
-				return true;
-			}else if(p1<p2) {
-				return false;
-			}else{
-				p1 = generarRandom();
-				p2 = generarRandom();
-			}
-		}
-	}
-	public static int generarRandom() {
-		return (int)(Math.random()*100);
-	}
+		}while(!juegoTerminado);
+    }
 }
