@@ -15,7 +15,7 @@ public class Reto3 {
     public static Scanner patata = new Scanner(System.in);
     
     public static void main(String[] args) {
-        String contraseña = ""
+        String contraseña = "";
             
         do{
             contraseña = pedirString("Inserta una contraseña: ");
@@ -51,12 +51,12 @@ public class Reto3 {
         return true;
     }
     public static boolean conMayusculas(String contraseña){
-        
+        return true;
     }
     public static boolean conNumeros(String contraseña){
-        
+        return true;
     }
     public static boolean conSimbolos(String contraseña){
-        
+        return true;
     }
 }
