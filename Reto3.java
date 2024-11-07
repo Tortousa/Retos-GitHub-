@@ -41,14 +41,7 @@ public class Reto3 {
         return contraseña;
     }
     public static boolean longitud(String contraseña){
-        for(int i = 1; i < contraseña.length(); i++){
-            if(i > 7 && i < 17){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        return true;
+        return contraseña.length() >= 8 && contraseña.length() <= 16;
     }
     public static boolean conMayusculas(String contraseña){
         return true;
