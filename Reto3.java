@@ -21,12 +21,15 @@ public class Reto3 {
             contraseña = pedirString("Inserta una contraseña: ");
 
             if(longitud(contraseña) != true){
-                System.out.println("Contraseña muy corta.");
-                break
+                System.out.println("Contraseña no cumple los parametros. Vuelve a intentarlo.");
+            }else{
+                System.out.println("Tu contraseña es: " + contraseña);
+                break;
             }
-            if(){
+            /*if(){
 
             }
+            */
         }while(true);    
     }
     public static String pedirString(String enunciado){
@@ -38,8 +41,8 @@ public class Reto3 {
         return contraseña;
     }
     public static boolean longitud(String contraseña){
-        for(int i = 0; i < contraseña.length(); i++){
-            if(i >= 8 && i <= 16){
+        for(int i = 1; i < contraseña.length(); i++){
+            if(i > 7 && i < 17){
                 return true;
             }else{
                 return false;
