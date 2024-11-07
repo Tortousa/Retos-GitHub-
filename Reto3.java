@@ -13,20 +13,21 @@ import java.util.Scanner;
 public class Reto3 {
     
     public static Scanner patata = new Scanner(System.in);
+    
     public static void main(String[] args) {
-        String contraseña;
-        boolean check = false;
-
+        String contraseña = ""
+            
         do{
             contraseña = pedirString("Inserta una contraseña: ");
 
-            if(longitudContraseña(contraseña) == true){
-                check = true;
+            if(longitud(contraseña) != true){
+                System.out.println("Contraseña muy corta.");
+                break
             }
-        }while(!check);
+            if(){
 
-
-        
+            }
+        }while(true);    
     }
     public static String pedirString(String enunciado){
         String contraseña = "";
@@ -36,16 +37,23 @@ public class Reto3 {
 
         return contraseña;
     }
-    public static boolean longitudContraseña(String contraseña){
-        boolean check = false;
-        
+    public static boolean longitud(String contraseña){
         for(int i = 0; i < contraseña.length(); i++){
-            if(i>=8 && i<=16){
+            if(i >= 8 && i <= 16){
                 return true;
             }else{
                 return false;
             }
         }
-        return check;
+        return true;
+    }
+    public static boolean conMayusculas(String contraseña){
+        
+    }
+    public static boolean conNumeros(String contraseña){
+        
+    }
+    public static boolean conSimbolos(String contraseña){
+        
     }
 }
