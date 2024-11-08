@@ -25,17 +25,18 @@ public class Reto1 {
 		System.out.print("\nTraduccion: ");
 		mostrarTraduccion(letras);
 
+		patata.close();
 	}
 	public static char[] StringToChar(String texto) {
 		char[] letras = new char[texto.length()];
 		
-		for(int i = 0; i<texto.length(); i++) {
+		for(int i = 0; i < texto.length(); i++) {
 			letras[i] = texto.charAt(i);
 		}
 		return letras;
 	}
 	public static void mostrarTraduccion(char[] letras) {
-		for(int i = 0; i<letras.length; i++) {
+		for(int i = 0; i < letras.length; i++) {
 			if(letras[i] == 'A') {
 				System.out.print("4 ");
 			}else if(letras[i] == 'B') {

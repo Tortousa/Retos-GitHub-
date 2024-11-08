@@ -117,5 +117,7 @@ public class Reto2 {
 			}
 
 		}while(!juegoTerminado);
+
+		patata.close();
     }
 }
