@@ -40,6 +40,8 @@ public class Reto4 {
             }
         } while (!check);
 
+        patata.close();
+
         return n;
     }
 
