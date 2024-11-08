@@ -1,3 +1,4 @@
+
 /*
  * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
  * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
@@ -17,6 +18,7 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 import java.util.Scanner;
+
 public class Reto2 {
 	public static void main(String[] args) {
 		Scanner patata = new Scanner(System.in);
@@ -26,98 +28,94 @@ public class Reto2 {
 
 		System.out.println("PARTIDO DE TENIS");
 		System.out.println("P1 -- P2");
-		
-		do{
+
+		do {
 			System.out.print("Inserta el ganador de la ronda(pulse 1 o 2): ");
 			ganador = patata.nextInt();
 
-			if(ganador == 1){
+			if (ganador == 1) {
 				contador1++;
 
-				if(contador1 == 1){
+				if (contador1 == 1) {
 					puntos1 = "15";
 				}
-				if(contador1 == 2){
+				if (contador1 == 2) {
 					puntos1 = "30";
 				}
-				if(contador1 == 3){
+				if (contador1 == 3) {
 					puntos1 = "40";
 				}
-				if(contador1 >= 4 && contador2 < 3){
+				if (contador1 >= 4 && contador2 < 3) {
 					System.out.println("Ha ganado el P1");
 					juegoTerminado = true;
 					break;
 				}
-			}else if(ganador == 2){
+			} else if (ganador == 2) {
 				contador2++;
 
-				if(contador2 == 1){
+				if (contador2 == 1) {
 					puntos2 = "15";
 				}
-				if(contador2 == 2){
+				if (contador2 == 2) {
 					puntos2 = "30";
 				}
-				if(contador2 == 3){
+				if (contador2 == 3) {
 					puntos2 = "40";
 				}
-				if(contador2 >= 4 && contador1 < 3){
+				if (contador2 >= 4 && contador1 < 3) {
 					System.out.println("Ha ganado el P2");
 					juegoTerminado = true;
 					break;
 				}
 			}
-			if(puntos1.equals("40") && puntos2.equals("40")){
+			if (puntos1.equals("40") && puntos2.equals("40")) {
 				System.out.println("Deuce");
 
-				do{
+				do {
 					System.out.print("Inserta el ganador de la ronda(pulse 1 o 2): ");
 					ganador = patata.nextInt();
 
-					if(ganador == 1){
+					if (ganador == 1) {
 						contador1++;
-		
-						if(contador1 - contador2 == 1){
+
+						if (contador1 - contador2 == 1) {
 							puntos1 = "Ventaja P1";
 							puntos2 = "40";
-						}
-						else if(contador1 - contador2 == 2){
+						} else if (contador1 - contador2 == 2) {
 							System.out.println("Ha ganado el P1");
 							juegoTerminado = true;
 							break;
-						}
-						else {
+						} else {
 							puntos1 = "40";
 							puntos2 = "40";
 							System.out.println("Deuce");
 						}
-					}else if(ganador == 2){
+					} else if (ganador == 2) {
 						contador2++;
-		
-						if(contador2 - contador1 == 1){
+
+						if (contador2 - contador1 == 1) {
 							puntos1 = "40";
 							puntos2 = "Ventaja P2";
-						}
-						else if(contador2 - contador1 == 2){
+						} else if (contador2 - contador1 == 2) {
 							System.out.println("Ha ganado el P2");
 							juegoTerminado = true;
 							break;
-						}
-						else {
+						} else {
 							puntos1 = "40";
 							puntos2 = "40";
 							System.out.println("Deuce");
 						}
 					}
 					System.out.println(puntos1 + " - " + puntos2);
-					
-				}while(true);
+
+				} while (true);
 			}
-			if(!juegoTerminado){
+			if (!juegoTerminado) {
 				System.out.println(puntos1 + " - " + puntos2);
 			}
 
-		}while(!juegoTerminado);
+		} while (!juegoTerminado);
 
 		patata.close();
-    }
+	}
 }
