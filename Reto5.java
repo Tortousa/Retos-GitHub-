@@ -10,6 +10,13 @@ import java.util.Scanner;
 
 public class Reto5 {
     public static void main(String[] args) {
+        String array[] = new String[2];
+
+        for(int i = 0; i < array.length; i++){
+            array[i] = pedirString("Inserta una opcion (piedra, papel, tijera, lagarto o spock): ");
+        }
+        
+        mostrarArray(array);
         
     }
     
@@ -25,5 +32,20 @@ public class Reto5 {
         }
         
         return texto;
+    }
+
+    public static void mostrarArray(String[] array){
+        for (String i : array) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public String mostrarResultado(String[] array){
+        for(int i = 0; i < array.length; i++){
+            if(array[0].equalsIgnoreCase("piedra") && array[1].equalsIgnoreCase("piedra")){
+                return "Tie";
+            }
+        }
+        
     }
 }
