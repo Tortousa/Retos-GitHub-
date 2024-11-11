@@ -12,4 +12,18 @@ public class Reto5 {
     public static void main(String[] args) {
         
     }
+    
+    public static String pedirString(String enunciado){
+        Scanner patata = new Scanner(System.in);
+        String texto = "";
+
+        try{
+            System.out.print(enunciado);
+            texto = patata.nextLine().trim();
+        }catch(Exception e){
+            System.out.println("Ha ocurrido un error: " + e.getMessage());
+        }
+        
+        return texto;
+    }
 }
