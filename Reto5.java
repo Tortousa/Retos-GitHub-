@@ -42,8 +42,10 @@ public class Reto5 {
 
     public String mostrarResultado(String[] array){
         for(int i = 0; i < array.length; i++){
-            if(array[0].equalsIgnoreCase("piedra") && array[1].equalsIgnoreCase("piedra")){
+            if(array[0] == array[1]){
                 return "Tie";
+            }else if(array[0].equalsIgnoreCase("piedra") && array[1].equalsIgnoreCase("tijera")){
+                return "Player 1";
             }
         }
         
